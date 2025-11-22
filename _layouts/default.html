@@ -1,501 +1,373 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="张三的个人简历 - 全栈开发工程师">
-    <title>张三 - 个人简历</title>
+    <meta name="description" content="CV of Yao Shangshang - Ph.D. Candidate in Cyber Science and Technology">
+    <title>Yao Shangshang - Academic CV</title>
     <style>
-        /* --- CSS 变量与基础设置 --- */
+        /* --- 基础变量 (学术蓝风格) --- */
         :root {
-            --primary-color: #2563eb;       /* 主色调：蓝色 */
-            --secondary-color: #1e40af;     /* 强调色 */
-            --bg-color: #f8fafc;            /* 背景色 */
+            --primary-color: #003366;       /* 深海军蓝，更具学术感 */
+            --secondary-color: #005b96;     /* 辅助蓝 */
+            --accent-color: #b30000;        /* 强调色（用于强调名字或重要链接） */
+            --bg-color: #fdfdfd;            /* 背景色 */
             --card-bg: #ffffff;             /* 卡片背景 */
-            --text-main: #1e293b;           /* 主要文字颜色 */
-            --text-secondary: #64748b;      /* 次要文字颜色 */
-            --border-color: #e2e8f0;        /* 边框颜色 */
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            --radius: 8px;
+            --text-main: #333333;           /* 主要文字 */
+            --text-secondary: #666666;      /* 次要文字 */
+            --border-color: #e0e0e0;        /* 边框 */
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --radius: 4px;                  /* 圆角稍微直一点，更严肃 */
         }
 
         /* 深色模式适配 */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-color: #0f172a;
-                --card-bg: #1e293b;
-                --text-main: #f1f5f9;
-                --text-secondary: #94a3b8;
-                --border-color: #334155;
-                --primary-color: #60a5fa;
-                --secondary-color: #3b82f6;
+                --bg-color: #121212;
+                --card-bg: #1e1e1e;
+                --text-main: #e0e0e0;
+                --text-secondary: #a0a0a0;
+                --border-color: #333333;
+                --primary-color: #64b5f6;
+                --secondary-color: #42a5f5;
+                --accent-color: #ff6b6b;
             }
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-family: "Times New Roman", "Georgia", serif; /* 衬线字体更适合学术CV */
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
             padding: 20px;
         }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.2s;
+        
+        /* 保持标题使用无衬线字体，增加现代感 */
+        h1, h2, h3, .section-title {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        a:hover {
-            color: var(--secondary-color);
-            text-decoration: underline;
-        }
+        a { color: var(--secondary-color); text-decoration: none; }
+        a:hover { text-decoration: underline; color: var(--accent-color); }
 
-        /* --- 布局容器 --- */
         .container {
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto;
             background-color: var(--card-bg);
-            border-radius: var(--radius);
             box-shadow: var(--shadow);
-            overflow: hidden;
+            padding: 50px;
+            border-radius: var(--radius);
         }
 
-        /* --- 头部区域 --- */
+        /* --- 头部 --- */
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .avatar {
-            width: 120px;
-            height: 120px;
-            background-color: white;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 30px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            font-weight: bold;
-            color: var(--primary-color);
-            /* 如果你有图片，可以使用 background-image: url('你的图片地址'); background-size: cover; 并清空文字 */
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
         }
 
-        header h1 {
-            font-size: 2.5rem;
+        .header-info h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
             margin-bottom: 5px;
         }
 
-        header p {
+        .header-info .subtitle {
             font-size: 1.1rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
+            font-style: italic;
             margin-bottom: 15px;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
+        .contact-list {
+            list-style: none;
+            font-family: -apple-system, sans-serif;
             font-size: 0.9rem;
         }
 
-        .contact-item {
+        .contact-list li {
+            margin-bottom: 6px;
             display: flex;
             align-items: center;
-            gap: 5px;
-            color: white;
+            gap: 8px;
         }
 
-        .contact-item svg {
+        .contact-list svg {
             width: 16px;
             height: 16px;
-            fill: currentColor;
+            fill: var(--text-secondary);
         }
 
-        /* --- 主要内容区域 --- */
-        main {
-            padding: 40px;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        section:last-child {
-            margin-bottom: 0;
-        }
+        /* --- 通用板块 --- */
+        section { margin-bottom: 35px; }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--primary-color);
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
             margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- 简介 --- */
+        .bio-text {
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .research-tags {
             display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        h2 svg {
-            width: 24px;
-            height: 24px;
-            fill: currentColor;
-        }
-
-        /* --- 经历/项目列表 --- */
-        .item {
-            margin-bottom: 25px;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
             flex-wrap: wrap;
-            margin-bottom: 5px;
+            gap: 10px;
+            margin-top: 10px;
         }
 
-        .item-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .item-subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
+        .tag {
+            background-color: rgba(0, 51, 102, 0.08);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-family: -apple-system, sans-serif;
             font-weight: 500;
         }
 
-        .item-date {
-            font-size: 0.9rem;
+        /* --- 教育经历 --- */
+        .edu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .edu-details { flex: 1; }
+        .edu-degree { font-weight: bold; font-size: 1.05rem; }
+        .edu-school { color: var(--text-main); }
+        .edu-year { 
+            font-family: -apple-system, sans-serif; 
+            color: var(--text-secondary); 
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        /* --- 论文列表 --- */
+        .pub-list {
+            list-style: none;
+            counter-reset: pub-counter;
+        }
+
+        .pub-item {
+            margin-bottom: 18px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .pub-item::before {
+            counter-increment: pub-counter;
+            content: "[" counter(pub-counter) "]";
+            position: absolute;
+            left: 0;
             color: var(--text-secondary);
-            font-style: italic;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
         }
 
-        .item-desc {
-            color: var(--text-main);
-        }
-
-        .item-desc ul {
-            list-style-position: inside;
-            margin-top: 8px;
-        }
-
-        .item-desc li {
+        .pub-title {
+            font-weight: bold;
+            display: block;
             margin-bottom: 4px;
         }
 
-        /* --- 技能标签 --- */
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
+        .pub-authors {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: block;
         }
 
-        .skill-tag {
-            background-color: rgba(37, 99, 235, 0.1);
+        /* 高亮作者名字 */
+        .me {
             color: var(--primary-color);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: rgba(0, 51, 102, 0.3);
         }
 
         /* --- 打印按钮 --- */
         .print-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 30px;
+            right: 30px;
             background-color: var(--primary-color);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            font-family: -apple-system, sans-serif;
             font-weight: bold;
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: transform 0.2s;
-            z-index: 100;
+            transition: 0.2s;
         }
+        .print-btn:hover { background-color: var(--secondary-color); transform: translateY(-2px); }
 
-        .print-btn:hover {
-            transform: translateY(-2px);
-            background-color: var(--secondary-color);
-        }
-
-        /* --- 页脚 --- */
-        footer {
-            text-align: center;
-            padding: 20px;
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--bg-color); /* Match body bg */
-        }
-
-        /* --- 响应式调整 --- */
+        /* --- 响应式 --- */
         @media (max-width: 600px) {
-            header {
-                padding: 30px 15px;
-            }
-            
-            main {
-                padding: 20px;
-            }
-
-            .item-header {
-                flex-direction: column;
-                gap: 2px;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-            }
+            .container { padding: 20px; }
+            header { flex-direction: column; gap: 10px; }
+            .edu-item { flex-direction: column; }
+            .edu-year { margin-left: 0; margin-top: 2px; font-size: 0.9rem; }
         }
 
         /* --- 打印样式 --- */
         @media print {
-            body {
-                background-color: white;
-                color: black;
-                padding: 0;
-            }
-            
-            .container {
-                box-shadow: none;
-                max-width: 100%;
-                width: 100%;
-            }
-
-            header {
-                background: none;
-                color: black;
-                padding: 20px 0;
-                border-bottom: 2px solid #ccc;
-            }
-
-            .avatar {
-                border: 2px solid #ccc;
-                color: black;
-            }
-
-            .contact-item {
-                color: black;
-            }
-
-            a {
-                text-decoration: none;
-                color: black;
-            }
-
-            .print-btn {
-                display: none;
-            }
-
-            .skill-tag {
-                background-color: #eee;
-                color: black;
-                border: 1px solid #ddd;
-            }
-
-            /* 强制打印背景色（如果浏览器支持） */
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; max-width: 100%; padding: 0 20px; }
+            .print-btn { display: none; }
+            a { text-decoration: none; color: black; }
+            .tag { border: 1px solid #ccc; background: none; color: black; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 打印按钮 -->
     <button class="print-btn" onclick="window.print()">
-        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-        保存为 PDF
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7"></path><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><path d="M6 14h12v8H6z"></path></svg>
+        Save as PDF
     </button>
 
     <div class="container">
         <header>
-            <!-- 头像区域：你可以替换下面的 div 为 <img src="photo.jpg" class="avatar" alt="头像"> -->
-            <div class="avatar">
-                ZS
+            <div class="header-info">
+                <h1>Yao Shangshang</h1>
+                <div class="subtitle">Ph.D. Candidate, Member IEEE</div>
+                <div class="subtitle" style="font-size: 0.9rem; margin-top: -10px;">School of Cyber Science and Technology, Information Engineering University</div>
             </div>
-            <h1>张三</h1>
-            <p>全栈开发工程师 / 开源爱好者 / 终身学习者</p>
             
-            <div class="contact-info">
-                <a href="mailto:zhangsan@example.com" class="contact-item">
+            <ul class="contact-list">
+                <!-- 请替换为你的真实邮箱 -->
+                <li>
                     <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    zhangsan@example.com
-                </a>
-                <a href="tel:+8613800138000" class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    +86 138 0013 8000
-                </a>
-                <a href="https://github.com/yourusername" target="_blank" class="contact-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    github.com/yourusername
-                </a>
-                <a href="https://yourblog.com" target="_blank" class="contact-item">
+                    <a href="mailto:your.email@example.com">your.email@example.com</a>
+                </li>
+                <!-- 如果有 Google Scholar，取消注释并替换链接 -->
+                <!-- 
+                <li>
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                    yourblog.com
-                </a>
-            </div>
+                    <a href="#" target="_blank">Google Scholar Profile</a>
+                </li>
+                -->
+                <li>
+                    <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <a href="https://github.com/" target="_blank">github.com/yourusername</a>
+                </li>
+            </ul>
         </header>
 
-        <main>
-            <!-- 简介 -->
-            <section id="about">
-                <h2>
-                    <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                    个人简介
-                </h2>
-                <p>
-                    拥有5年经验的全栈开发工程师，专注于构建高性能的 Web 应用。擅长 React 和 Node.js 生态系统。对代码质量有洁癖，热衷于开源社区贡献。具备良好的团队协作能力和解决复杂问题的能力，致力于通过技术创造实际价值。
-                </p>
-            </section>
+        <section id="about">
+            <h2>Biography</h2>
+            <div class="bio-text">
+                Yao Shangshang (Member, IEEE) received a Bachelor's degree in Electronic Information Science and Technology from Harbin Institute of Technology in 2019. In 2021, he obtained a Master's degree from the School of Computer Science at the National University of Defense Technology. Currently, he is pursuing a Ph.D. in the School of Cyber Science and Technology at the Information Engineering University.
+            </div>
+            <div class="research-tags">
+                <span class="tag">Energy-efficient Systems</span>
+                <span class="tag">Approximate Arithmetic Units</span>
+                <span class="tag">Hardware Accelerators</span>
+                <span class="tag">AI & Machine Learning</span>
+                <span class="tag">FPGA</span>
+            </div>
+        </section>
 
-            <!-- 工作经历 -->
-            <section id="experience">
-                <h2>
-                    <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-                    工作经历
-                </h2>
+        <section id="education">
+            <h2>Education</h2>
+            
+            <div class="edu-item">
+                <div class="edu-details">
+                    <div class="edu-degree">Ph.D. in Cyber Science and Technology</div>
+                    <div class="edu-school">Information Engineering University</div>
+                </div>
+                <div class="edu-year">2021 - Present</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-details">
+                    <div class="edu-degree">M.S. in Computer Science</div>
+                    <div class="edu-school">National University of Defense Technology (NUDT)</div>
+                </div>
+                <div class="edu-year">2019 - 2021</div>
+            </div>
+
+            <div class="edu-item">
+                <div class="edu-details">
+                    <div class="edu-degree">B.S. in Electronic Information Science and Technology</div>
+                    <div class="edu-school">Harbin Institute of Technology (HIT)</div>
+                </div>
+                <div class="edu-year">2015 - 2019</div>
+            </div>
+        </section>
+
+        <section id="publications">
+            <h2>Selected Publications</h2>
+            <ol class="pub-list">
+                <li class="pub-item">
+                    <span class="pub-title">ILP-Driven FPGA Multiplier Synthesis: A Scalable Framework for Area-Latency Co-Optimization</span>
+                    <span class="pub-authors"><span class="me">S. Yao</span>, K. Li, L. Shen</span>
+                </li>
                 
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">高级前端工程师</div>
-                        <div class="item-date">2021.06 - 至今</div>
-                    </div>
-                    <div class="item-subtitle">某某知名互联网科技公司</div>
-                    <div class="item-desc">
-                        <ul>
-                            <li>负责公司核心 SaaS 平台的前端架构重构，将页面加载速度提升了 40%。</li>
-                            <li>主导开发了内部 UI 组件库，统一了全线产品的视觉风格，提高了开发效率。</li>
-                            <li>指导初级工程师，定期组织技术分享会，提升团队整体技术氛围。</li>
-                            <li>技术栈：React, TypeScript, Next.js, TailwindCSS。</li>
-                        </ul>
-                    </div>
-                </div>
+                <li class="pub-item">
+                    <span class="pub-title">Biased Compressor Based Approximate Multiplier Design Using Genetic Algorithm</span>
+                    <span class="pub-authors">Z. Wen, Y. Sun, <span class="me">S. Yao</span>, W. Xu, J. Zhang</span>
+                </li>
 
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">Web 开发工程师</div>
-                        <div class="item-date">2018.07 - 2021.05</div>
-                    </div>
-                    <div class="item-subtitle">某某初创企业</div>
-                    <div class="item-desc">
-                        <ul>
-                            <li>从零开始搭建电商小程序，实现了从商品展示到支付结算的完整闭环。</li>
-                            <li>负责后端 API 的设计与实现，处理高并发场景下的订单系统。</li>
-                            <li>优化数据库查询性能，解决了双十一期间的系统瓶颈问题。</li>
-                            <li>技术栈：Vue.js, Node.js, MySQL, Redis。</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                <li class="pub-item">
+                    <span class="pub-title">ImprLM: An Improved Logarithmic Multiplier Design Approach via Iterative Linear-Compensation and Modified Dynamic Segment</span>
+                    <span class="pub-authors"><span class="me">S. Yao</span>, L. Shen</span>
+                </li>
 
-            <!-- 个人项目 -->
-            <section id="projects">
-                <h2>
-                    <svg viewBox="0 0 24 24"><path d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z"/></svg>
-                    个人项目
-                </h2>
+                <li class="pub-item">
+                    <span class="pub-title">A High-performance SpMV Accelerator on HBM-equipped FPGAs</span>
+                    <span class="pub-authors">T. Li, L. Shen, <span class="me">S. Yao</span></span>
+                </li>
 
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">
-                            <a href="#" target="_blank">SmartTask - 智能任务管理工具</a>
-                        </div>
-                        <div class="item-date">开源项目</div>
-                    </div>
-                    <div class="item-desc">
-                        <p>一个基于 Electron 和 React 的跨平台桌面应用，帮助用户高效管理日常任务。</p>
-                        <ul>
-                            <li>实现了本地数据加密存储，保障用户隐私。</li>
-                            <li>支持 Markdown 语法编辑和实时预览。</li>
-                            <li>GitHub Star 数超过 500+，拥有活跃的社区贡献者。</li>
-                        </ul>
-                    </div>
-                </div>
+                <li class="pub-item">
+                    <span class="pub-title">FHAM: FPGA-based High-Efficiency Approximate Multipliers via LUT Encoding</span>
+                    <span class="pub-authors"><span class="me">S. Yao</span>, L. Zhang</span>
+                </li>
 
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">
-                            <a href="#" target="_blank">BlogTheme - 极简博客主题</a>
-                        </div>
-                        <div class="item-date">设计与开发</div>
-                    </div>
-                    <div class="item-desc">
-                        <p>为 Hugo 静态网站生成器设计的一款极简风格主题。</p>
-                        <ul>
-                            <li>极致的性能优化，Lighthouse 评分全满分。</li>
-                            <li>内置暗黑模式和多语言支持。</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                <li class="pub-item">
+                    <span class="pub-title">Hardware-Efficient FPGA-Based Approximate Multipliers for Error-Tolerant Computing</span>
+                    <span class="pub-authors"><span class="me">S. Yao</span>, L. Zhang</span>
+                </li>
 
-            <!-- 技能清单 -->
-            <section id="skills">
-                <h2>
-                    <svg viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.64-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg>
-                    专业技能
-                </h2>
-                <div class="skills-grid">
-                    <span class="skill-tag">JavaScript (ES6+)</span>
-                    <span class="skill-tag">TypeScript</span>
-                    <span class="skill-tag">React / Next.js</span>
-                    <span class="skill-tag">Vue.js</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">HTML5 & CSS3</span>
-                    <span class="skill-tag">TailwindCSS</span>
-                    <span class="skill-tag">Git / GitHub</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">MySQL / MongoDB</span>
-                    <span class="skill-tag">AWS</span>
-                    <span class="skill-tag">Agile / Scrum</span>
-                </div>
-            </section>
+                <li class="pub-item">
+                    <span class="pub-title">An Efficient Hybrid Parallel Compression Approximate Multiplier</span>
+                    <span class="pub-authors"><span class="me">S. Yao</span>, L. Zhang, Q. Wang, L. Shen</span>
+                </li>
+            </ol>
+        </section>
 
-            <!-- 教育背景 -->
-            <section id="education">
-                <h2>
-                    <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
-                    教育背景
-                </h2>
-                <div class="item">
-                    <div class="item-header">
-                        <div class="item-title">计算机科学与技术 - 本科</div>
-                        <div class="item-date">2014.09 - 2018.06</div>
-                    </div>
-                    <div class="item-subtitle">某某大学</div>
-                    <div class="item-desc">
-                        主修课程：数据结构、算法分析、操作系统、计算机网络、数据库原理。
-                    </div>
-                </div>
-            </section>
-        </main>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="research-tags">
+                <span class="tag">Verilog / VHDL</span>
+                <span class="tag">FPGA Synthesis (Vivado/Quartus)</span>
+                <span class="tag">C/C++</span>
+                <span class="tag">Python</span>
+                <span class="tag">MATLAB</span>
+                <span class="tag">LaTeX</span>
+            </div>
+        </section>
 
-        <footer>
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> 张三. Hosted on GitHub Pages.</p>
-        </footer>
     </div>
 </body>
 </html>
