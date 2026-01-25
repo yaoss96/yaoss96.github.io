@@ -68,8 +68,8 @@
             margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 30px;
+            align-items: center; /* 垂直居中对齐 */
+            gap: 40px;
         }
 
         .header-left {
@@ -111,7 +111,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            justify-content: flex-start; /* 左对齐 */
+            justify-content: flex-start;
         }
 
         .contact-list svg {
@@ -120,17 +120,17 @@
             fill: var(--text-secondary);
         }
 
-        /* 照片样式 */
+        /* 照片样式 - 已调大尺寸 */
         .header-photo {
             flex-shrink: 0;
         }
 
         .profile-img {
-            width: 140px;
-            height: 140px;
+            width: 180px;  /* 调整为 180px */
+            height: 180px; /* 调整为 180px */
             object-fit: cover;
             border-radius: 50%; /* 圆形头像 */
-            border: 3px solid var(--border-color);
+            border: 4px solid var(--border-color); /* 边框稍微加粗一点 */
             box-shadow: var(--shadow);
             display: block;
         }
@@ -410,6 +410,12 @@
             <h3>Conference Proceedings</h3>
             <ol class="pub-list" style="counter-reset: pub-counter 1;">
                 <li class="pub-item">
+                    <span class="pub-title">AutoCT: Hybrid Compressor Tree Optimization via Reinforcement Learning with Graph Modeling</span>
+                    <span class="pub-authors"><span class="me">S. Yao</span>, K. Li, L. Shen, R. Wang, J. Liu</span>
+                    <span class="pub-venue">IEEE/ACM Asia and South Pacific Design Automation Conference (ASP-DAC), 2026</span>
+                </li>
+
+                <li class="pub-item">
                     <span class="pub-title">ILP-Driven FPGA Multiplier Synthesis: A Scalable Framework for Area-Latency Co-Optimization</span>
                     <span class="pub-authors"><span class="me">S. Yao</span>, K. Li, L. Shen</span>
                     <span class="pub-venue">IEEE/ACM International Conference On Computer Aided Design (ICCAD), 2025</span>
@@ -465,8 +471,11 @@
             <h3>Journal Reviewer</h3>
             <ul class="service-list">
                 <li>IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)</li>
-                <li>Circuits, Systems, and Signal Processing (CSSP)</li>
+                <li>IEEE Transactions on Circuits and Systems II: Express Briefs (TCAS-II)</li>
+                <li>IEEE Transactions on Very Large Scale Integration Systems (TVLSI)</li>
                 <li>IEEE Transactions on Computers (TC)</li>
+                <li>International Journal of Electronics and Communications</li>
+                <li>Circuits, Systems, and Signal Processing (CSSP)</li>
             </ul>
 
             <h3>Conference Reviewer</h3>
